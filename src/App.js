@@ -10,10 +10,11 @@ import Artists from "./Pages/Artists";
 import Charity from "./Pages/Charity";
 import FAQ from "./Pages/FAQ";
 import Navbar from "./components/navbar";
+import Footer from "./components/Footer";
 function App() {
   return (
     <React.Fragment>
-      <Navbar />
+      {/* <Navbar /> */}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/shop" component={Shop} />
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/faq" component={FAQ} />
         <Route component={Error} />
       </Switch>
+      <Footer />
     </React.Fragment>
   );
 }

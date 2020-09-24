@@ -21,7 +21,7 @@ class Banner extends Component {
             </div>
           </div>
           <div className="banner2">
-            <div className="banner2_letter">
+            <div className="banner2_letter global_letter_box">
               <p>Organic loose leaf tea</p>
               <h3>Need a refill?</h3>
               <Link to="/shop" className="btn btn_aqua">

@@ -1,18 +1,19 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Navbar from "../components/navbar";
-import MiniNav from "../components/mini_nav";
 import Hero from "../components/Home-components/Hero";
 import Article from "../components/Home-components/Article";
 import Banner from "../components/Home-components/Banner";
+import Feature from "../components/Home-components/Feature";
+import Navbar from "../components/navbar";
 class Home extends Component {
   state = {};
   render() {
     return (
       <React.Fragment>
+        <Navbar />
         <Hero />
         <Article />
         <Banner />
+        <Feature />
       </React.Fragment>
     );
   }

@@ -23,7 +23,7 @@ class Hero extends Component {
             <Link className="btn btn_black" to="/shop">
               expore our Teas
             </Link>
-            <img src="/Images/heart-white.png" />
+            <img src="/Images/heart-white.png" alt="heart-white" />
             <p>
               This season we will provide art supplies to SOS <br /> Children's
               Village, British Columbia

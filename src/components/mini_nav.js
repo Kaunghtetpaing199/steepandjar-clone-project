@@ -22,7 +22,7 @@ class Nav extends Component {
           className={
             this.state.isScolled ? "Header_name scrolledNone" : "Header_name"
           }>
-          <img src="/Images/logo.png" />
+          <img src="/Images/logo.png" alt="logo" />
           <p>Free Shipping In Canada Over $50 </p>
         </div>
       </React.Fragment>

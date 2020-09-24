@@ -15,10 +15,14 @@ class Navbar extends Component {
   };
 
   scolling = () => {
-    let isTop = window.scrollY < 550;
-    isTop !== true
-      ? this.setState({ scrolled: true })
-      : this.setState({ scrolled: false });
+    if (
+      window.scrollY > this.props.scrollStart &&
+      window.scrollY < this.props.scrollEnd
+    ) {
+      this.setState({ scrolled: true });
+    } else {
+      this.setState({ scrolled: false });
+    }
   };
   componentDidMount() {
     window.addEventListener("scroll", this.scolling);
@@ -177,4 +181,10 @@ class Navbar extends Component {
     );
   }
 }
+
+Navbar.defaultProps = {
+  scrollStart: 550,
+  scrollEnd: 1700
+};
+
 export default Navbar;
