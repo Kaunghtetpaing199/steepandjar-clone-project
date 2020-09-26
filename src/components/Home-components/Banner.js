@@ -15,7 +15,7 @@ class Banner extends Component {
                 is add the blank cards to your cart and copy the code below in
                 the checkout section.
               </p>
-              <Link to="/shop" className="btn btn_aqua_black">
+              <Link to="/shop" className="btn btn_aqua">
                 expore out teams
               </Link>
             </div>

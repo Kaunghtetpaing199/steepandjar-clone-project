@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { FaFacebookF } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { AiOutlineTwitter } from "react-icons/ai";
+import { TeaContext } from "../Context";
 
 class Navbar extends Component {
   state = {
     isToggle: false,
     scrolled: false
   };
-
+  static contextType = TeaContext;
   handleToggle = () => {
     this.setState({ isToggle: !this.state.isToggle });
   };
@@ -31,6 +32,7 @@ class Navbar extends Component {
     window.removeEventListener("scroll", this.scolling);
   }
   render() {
+    let { addTocart } = this.context;
     return (
       <React.Fragment>
         <div
@@ -60,9 +62,12 @@ class Navbar extends Component {
                   <span></span>
                   {this.state.isToggle ? "Close" : "Menu"}
                 </li>
-                <li className="cart_box">
-                  <span> CART</span> <span className="cart_number">0</span>
-                </li>
+                <Link to="/addtocart">
+                  <li className="cart_box">
+                    <span> CART</span>{" "}
+                    <span className="cart_number">{addTocart.length}</span>
+                  </li>
+                </Link>
               </ul>
             </nav>
             <div
