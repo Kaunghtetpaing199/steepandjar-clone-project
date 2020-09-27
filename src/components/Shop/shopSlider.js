@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { TeaContext } from "../../Context";
-import Loading from "../Loading";
 class ShopSlider extends Component {
   static contextType = TeaContext;
   render() {

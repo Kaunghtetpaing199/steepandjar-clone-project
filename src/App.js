@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/Home";
@@ -10,10 +10,20 @@ import Artists from "./Pages/Artists";
 import Charity from "./Pages/Charity";
 import FAQ from "./Pages/FAQ";
 import Teas from "./Pages/Teas";
-import Navbar from "./components/navbar";
+import { TeaContext } from "./Context";
 import Footer from "./components/Footer";
 import AddToCart from "./Pages/AddToCart";
+import AlertBox from "./components/AlertBox";
+import LightBox from "./components/LightBox";
+import Loading from "./components/Loading";
 function App() {
+  let { loading, lightBox } = useContext(TeaContext);
+  let Box =
+    lightBox !== []
+      ? lightBox.map((item, index) => (
+          <LightBox key={index} fields={item.fields} />
+        ))
+      : null;
   return (
     <React.Fragment>
       <Switch>
@@ -28,6 +38,8 @@ function App() {
         <Route exact path="/addtocart" component={AddToCart} />
         <Route component={Error} />
       </Switch>
+      {loading ? <Loading /> : Box}
+      <AlertBox />
       <Footer />
     </React.Fragment>
   );

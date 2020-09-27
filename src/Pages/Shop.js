@@ -1,20 +1,16 @@
 import React, { Component } from "react";
 import Navbar from "../components/navbar";
-import { Link } from "react-router-dom";
 import { TeaContext } from "../Context";
 import Shopping from "../components/Shop/Shopping";
 import Loading from "../components/Loading";
 import ShopSlider from "../components/Shop/shopSlider";
-import Painting from "../components/Shop/painting";
-import LightBox from "../components/LightBox";
 import Gif from "../components/Shop/gif";
-import AlertBox from "../components/AlertBox";
+import Art from "../components/Art";
 class Shop extends Component {
   static contextType = TeaContext;
   render() {
-    let { loading, teas, lightBox } = this.context;
+    let { loading, teas } = this.context;
     let teaShop = teas.filter((item) => item.fields.type);
-    let artShop = teas.filter((item) => item.fields.species);
     let gif = teas.filter((item) => item.fields.gif);
     let shopTeas = teaShop.map((item, index) => (
       <Shopping key={index} fields={item.fields} />
@@ -22,18 +18,9 @@ class Shop extends Component {
     let circleTeas = teaShop.map((item, index) => (
       <ShopSlider key={index} fields={item.fields} />
     ));
-    let artist = artShop.map((item, index) => (
-      <Painting key={index} fields={item.fields} />
-    ));
     let gifItem = gif.map((item, index) => (
       <Gif key={index} fields={item.fields} />
     ));
-    lightBox =
-      lightBox !== []
-        ? lightBox.map((item, index) => (
-            <LightBox key={index} fields={item.fields} />
-          ))
-        : null;
     return (
       <React.Fragment>
         <Navbar scrollStart={-1} scrollEnd={3000} />
@@ -69,13 +56,7 @@ class Shop extends Component {
           </p>
           <span className="button">$8.00</span>
         </div>
-        <div className="artist_prints">
-          <div className="print_container">
-            {loading ? <Loading /> : artist}
-          </div>
-        </div>
-        {loading ? <Loading /> : lightBox}
-        <AlertBox />
+        <Art />
       </React.Fragment>
     );
   }

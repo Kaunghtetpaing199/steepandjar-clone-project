@@ -170,6 +170,21 @@ button:focus {
   padding: .5rem 1.5rem;
 }
 
+.error {
+  background-image: url('/Images/error.svg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 700px;
+  margin-top: 4rem;
+}
+
+.global_bg {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 600px;
+}
 
 /* Alert Box{Start} */
 .alertBox_container {
@@ -1347,6 +1362,23 @@ button:focus {
 /* Single shop Cart {End} */
 
 /* Add to cart{Start} */
+
+.empty_cart {
+  width: 100%;
+  grid-row: 1/3;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-column: 1/4;
+}
+
+.empty_cart h3 {
+  color: #ffffff;
+  font-size: 2rem;
+}
+
 .addtocart_container {
   background-color: #313131;
   width: 100%;
@@ -1465,6 +1497,211 @@ button:focus {
 }
 
 /* Add to cart{End} */
+
+/* About {Start} */
+
+.about_founder {
+  background-color: #80fad1;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.about_letter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  transform: translateY(-50%);
+}
+
+.about_founder img {
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+}
+
+.about_founder h3 {
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+}
+
+.about_founder p {
+  font-size: 1.5rem;
+}
+
+.about_cup {
+  width: 100%;
+  height: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.about_cup_letter {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about_cup_letter h3 {
+  font-size: 2rem;
+}
+
+.about_cup_letter p {
+  width: 80%;
+  font-size: 1.2rem;
+}
+
+.about_cup_img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.about_cup_img .jar {
+  width: 350px;
+  height: 350px;
+  transform: translateY(100%);
+  z-index: 9;
+}
+
+.about_cup_img .circle {
+  width: 130%;
+  height: 130%;
+  transform: translateY(30%);
+}
+
+.about_process {
+  display: grid;
+  width: 100%;
+  grid-auto-rows: 500px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.process_bg {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-image: url('/Images/founder-sefile.jpg');
+}
+
+.process_letter {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: #313133;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem;
+}
+
+.process_letter * {
+  color: #ffffff;
+}
+
+.process_letter h3 {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+/* About {End} */
+
+/* Aritist {Start} */
+.about_artist {
+  width: 100%;
+  height: 400px;
+  background-color: #80fad1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artist_info {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50%);
+}
+
+.artist_info h3 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.artist_info img {
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+}
+
+.artist_bio {
+  width: 50%;
+}
+
+.artist_bio h3 {
+  width: 25px;
+  border-top: 2px solid #313131;
+  font-size: .9rem;
+}
+
+.artist_bio p {
+  font-size: 1.2rem;
+  margin: .3rem 0;
+}
+
+/* Artist {End} */
+/* Charity {Start} */
+.child_container {
+  width: 100%;
+  height: 400px;
+  background-color: #80fad1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.child_info {
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 30%;
+}
+
+.child_info img {
+  width: 150px;
+  height: 150px;
+}
+
+.child_bio {
+  width: 50%;
+}
+
+.child_bio h3 {
+  font-size: .9rem;
+}
+
+.child_bio p {
+  margin: 1rem 0;
+}
+
+/* Charity {End} */
 
 @media only screen and (max-width: 980px) {
   .nav_grid {
@@ -1666,6 +1903,52 @@ button:focus {
     width: 50%;
     height: 30%;
   }
+
+  .error {
+    height: 500px;
+    margin-top: 5rem;
+  }
+
+
+
+  .about_cup_letter {
+    text-align: center;
+  }
+
+  .about_cup_img .jar {
+    width: 300px;
+    height: 300px;
+    transform: translateY(90%);
+  }
+
+  .about_cup_img .circle {
+    width: 120%;
+    height: 120%;
+  }
+
+  .process_letter {
+    padding: 1rem;
+  }
+
+  .artist_info {
+    width: 40%;
+    transform: translateY(0%);
+  }
+
+  .artist_bio {
+    width: 60%;
+    margin: .8rem;
+  }
+
+  .artist_bio p {
+    font-size: 1rem;
+  }
+
+  .child_bio {
+    width: 80%;
+  }
+
+
 }
 
 @media only screen and (max-width: 800px) {
@@ -1848,4 +2131,64 @@ button:focus {
     height: 30%;
     transform: scale(.8);
   }
+
+  .error {
+    height: 220px;
+  }
+
+  .about_cup {
+    height: 800px;
+    grid-template-columns: 1fr;
+  }
+
+  .about_cup_letter {
+    padding: 2rem;
+  }
+
+  .about_cup_img .jar {
+    width: 300px;
+    height: 300px;
+    transform: translateY(80%);
+  }
+
+  .about_process {
+    grid-template-rows: 400px 300px;
+    grid-template-columns: 1fr;
+  }
+
+  .process_letter {
+    padding: 0 1rem;
+  }
+
+  .about_artist {
+    height: 800px;
+    flex-direction: column;
+  }
+
+  .artist_info {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .artist_bio {
+    width: 100%;
+    padding: 1rem;
+    transform: translateY(-1rem);
+  }
+
+  .child_container {
+    height: 800px;
+    flex-direction: column;
+  }
+
+  .child_info {
+    flex-direction: column;
+  }
+
+
+  .child_bio {
+    width: 100%;
+    padding: 1rem;
+  }
+
 }

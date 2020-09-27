@@ -16,8 +16,7 @@ class Teas extends Component {
       getCart,
       count,
       handleIncrement,
-      handleDecrement,
-      handleDelete
+      handleDecrement
     } = this.context;
     let tea = getTea(this.state.slug);
     if (!tea) {

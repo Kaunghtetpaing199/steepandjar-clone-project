@@ -134,8 +134,8 @@ class Navbar extends Component {
                       </Link>
                     </li>
                     <li className="hide main_nav">
-                      <Link to="/faq" className="link_nav">
-                        faq
+                      <Link to="/contact" className="link_nav">
+                        contact
                       </Link>
                     </li>
                   </ul>
@@ -145,8 +145,8 @@ class Navbar extends Component {
                 <div className="nav_child">
                   <ul className="bordernone">
                     <li>
-                      <Link to="/faq" className="link_nav">
-                        faq
+                      <Link to="/contact" className="link_nav">
+                        contact
                       </Link>
                     </li>
                   </ul>
