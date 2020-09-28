@@ -248,6 +248,50 @@ button:focus {
 
 /* Alert Box{Start} */
 
+/* Loading {Start} */
+.loader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader>span {
+  display: inline-block;
+  background-color: purple;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  transform: translate3d(0);
+  opacity: 1;
+  margin: 0 8px;
+  animation: bounce .6s infinite alternate;
+}
+
+.loader>span:nth-child(2) {
+  background-color: palevioletred;
+  animation-delay: 0.2s;
+
+}
+
+.loader>span:nth-child(3) {
+  animation-delay: 0.4s;
+
+}
+
+@keyframes bounce {
+  to {
+    width: 16px;
+    height: 16px;
+    transform: translate3d(0, -16px, 0);
+  }
+}
+
+/* Loading {End} */
+
 /* Footer {Start} */
 
 .footer_container {

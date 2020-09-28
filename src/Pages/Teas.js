@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { TeaContext } from "../Context";
 import Loading from "../components/Loading";
 import Navbar from "../components/navbar";
-import { BsFillCaretUpFill } from "react-icons/bs";
-import { BsFillCaretDownFill } from "react-icons/bs";
+// import { BsFillCaretUpFill } from "react-icons/bs";
+// import { BsFillCaretDownFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 class Teas extends Component {
   state = {
@@ -11,13 +11,7 @@ class Teas extends Component {
   };
   static contextType = TeaContext;
   render() {
-    let {
-      getTea,
-      getCart,
-      count,
-      handleIncrement,
-      handleDecrement
-    } = this.context;
+    let { getTea, getCart } = this.context;
     let tea = getTea(this.state.slug);
     if (!tea) {
       return <Loading />;
@@ -33,7 +27,6 @@ class Teas extends Component {
       requirementList,
       description
     } = tea;
-    price = count * price;
     return (
       <React.Fragment>
         <Navbar scrollStart={-1} />
@@ -46,7 +39,8 @@ class Teas extends Component {
               <div className="order_item1_letter">
                 <h4>{type}</h4>
                 <h3>{name}</h3>
-                <div className="order_btn_box">
+
+                {/* <div className="order_btn_box">
                   <div className="order_box1 order_box">
                     <h3>jar size</h3>
                     <div className="order_btns">
@@ -59,16 +53,16 @@ class Teas extends Component {
                   <div className="order_box2 order_box">
                     <h3>Quantity</h3>
                     <div className="cart_btns">
-                      <i className="icons_btn" onClick={handleIncrement}>
+                      <i className="icons_btn">
                         <BsFillCaretUpFill />
                       </i>
                       <span>{count}</span>
-                      <i className="icons_btn" onClick={handleDecrement}>
+                      <i className="icons_btn">
                         <BsFillCaretDownFill />
                       </i>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="order_addtocart">

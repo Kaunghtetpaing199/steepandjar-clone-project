@@ -9,8 +9,10 @@ class TeaProvider extends Component {
     loading: true,
     close: false,
     inCart: false,
-    count: 1,
-    addTocart: []
+    addTocart: [],
+    subTotal: 0,
+    tax: 0,
+    total: 0
   };
   componentDidMount() {
     let teas = tea_item;
@@ -39,21 +41,82 @@ class TeaProvider extends Component {
       this.setState({ inCart: true });
       return null;
     }
-    this.setState({ addTocart: [...this.state.addTocart, teas] });
+    this.setState(
+      () => {
+        return { addTocart: [...this.state.addTocart, teas] };
+      },
+      () => {
+        this.addTotals();
+      }
+    );
   };
   handleDelete = (id) => {
     let addTo = (this.state.addTocart || []).filter((item) => item.id !== id);
-    this.setState({ addTocart: addTo });
+    this.setState(
+      () => {
+        return { addTocart: addTo };
+      },
+      () => {
+        this.addTotals();
+      }
+    );
   };
-  handleIncrement = () => {
-    this.setState({ count: this.state.count + 1 });
+  handleIncrement = (id) => {
+    let tempCart = [...this.state.addTocart];
+    let tempItem = tempCart.find((item) => item.id === id);
+    let index = tempCart.indexOf(tempItem);
+    let product = tempCart[index];
+    product.count = product.count + 1;
+    product.total = product.price * product.count;
+    this.setState(
+      () => {
+        return { addTocart: tempCart };
+      },
+      () => {
+        this.addTotals();
+      }
+    );
   };
-  handleDecrement = () => {
-    let count = this.state.count > 1 ? this.state.count - 1 : 1;
-    this.setState({ count });
+  handleDecrement = (id) => {
+    let tempCart = [...this.state.addTocart];
+    let tempItem = tempCart.find((item) => item.id === id);
+    let index = tempCart.indexOf(tempItem);
+    let product = tempCart[index];
+    if (product.count > 1) {
+      product.count = product.count - 1;
+      product.total = product.price * product.count;
+      this.setState(
+        () => {
+          return { addTocart: tempCart };
+        },
+        () => {
+          this.addTotals();
+        }
+      );
+    } else {
+      this.handleDelete(id);
+    }
   };
   closeAlert = (e) => {
     this.setState({ inCart: false });
+  };
+  addTotals = () => {
+    let subTotal = 0;
+    this.state.addTocart.map((item) => (subTotal += item.total));
+    let tempTax = subTotal * 0.1;
+    let tax = parseFloat(tempTax.toFixed(2));
+    let total = subTotal + tax;
+    this.setState({ subTotal, total, tax });
+  };
+  cleanCart = () => {
+    this.setState(
+      () => {
+        return { addTocart: [], subTotal: 0, tax: 0, total: 0 };
+      },
+      () => {
+        this.addTotals();
+      }
+    );
   };
   render() {
     return (
@@ -68,7 +131,8 @@ class TeaProvider extends Component {
             handleDecrement: this.handleDecrement,
             handleDelete: this.handleDelete,
             getCart: this.getCart,
-            closeAlert: this.closeAlert
+            closeAlert: this.closeAlert,
+            cleanCart: this.cleanCart
           }}>
           {this.props.children}
         </TeaContext.Provider>
