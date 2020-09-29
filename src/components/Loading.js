@@ -5,7 +5,7 @@ class Loading extends Component {
   render() {
     return (
       <React.Fragment>
-        <div class="loader">
+        <div className="loader">
           <span></span>
           <span></span>
           <span></span>

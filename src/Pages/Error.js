@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
 class Error extends Component {
-  state = {};
+  state = {name:'k'}
+
   render() {
     return (
       <React.Fragment>
